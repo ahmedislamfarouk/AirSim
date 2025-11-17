@@ -46,6 +46,8 @@ set(INCLUDE_DIRS include
   ${AIRSIM_ROOT}/MavLinkCom/include
   ${AIRSIM_ROOT}/MavLinkCom/common_utils
   ${OpenCV_INCLUDE_DIRS}
+  /opt/ros/humble/include
+  /opt/ros/humble/include/tf2_geometry_msgs
   )
 include_directories(${INCLUDE_DIRS})
 
@@ -58,6 +60,8 @@ ament_target_dependencies(pd_position_controller_simple
   rclcpp
   nav_msgs
   geometry_msgs
+  tf2
+  tf2_geometry_msgs
   airsim_interfaces
 )
 
@@ -72,6 +76,7 @@ ament_target_dependencies(airsim_ros
   tf2_ros
   cv_bridge
   airsim_interfaces
+  std_srvs
 )
 
 add_executable(airsim_node src/airsim_node.cpp)

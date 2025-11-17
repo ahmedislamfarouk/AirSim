@@ -1,0 +1,89 @@
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "Vehicles": {
+    "Drone0": {
+      "VehicleType": "SimpleFlight",
+      "X": 0, "Y": 0, "Z": 0,
+      "Sensors": {
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "PointsPerSecond": 200000,
+          "Range": 200,
+          "RotationsPerSecond": 10,
+          "VerticalFOVUpper": 20,
+          "VerticalFOVLower": -20,
+          "HorizontalFOVStart": -180,
+          "HorizontalFOVEnd": 180,
+          "DrawDebugPoints": false
+        }
+      }
+    },
+    "Drone1": {
+      "VehicleType": "SimpleFlight",
+      "X": 10, "Y": 0, "Z": 0,
+      "Sensors": {
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "PointsPerSecond": 200000,
+          "Range": 200,
+          "RotationsPerSecond": 10,
+          "VerticalFOVUpper": 20,
+          "VerticalFOVLower": -20
+        }
+      }
+    },
+    "Drone2": {
+      "VehicleType": "SimpleFlight",
+      "X": 20, "Y": 0, "Z": 0,
+      "Sensors": {
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "PointsPerSecond": 200000,
+          "Range": 200,
+          "RotationsPerSecond": 10,
+          "VerticalFOVUpper": 20,
+          "VerticalFOVLower": -20
+        }
+      }
+    },
+    "Drone3": {
+      "VehicleType": "SimpleFlight",
+      "X": 30, "Y": 0, "Z": 0,
+      "Sensors": {
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "PointsPerSecond": 200000,
+          "Range": 200,
+          "RotationsPerSecond": 10,
+          "VerticalFOVUpper": 20,
+          "VerticalFOVLower": -20
+        }
+      }
+    },
+    "Drone4": {
+      "VehicleType": "SimpleFlight",
+      "X": 40, "Y": 0, "Z": 0,
+      "Sensors": {
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "PointsPerSecond": 200000,
+          "Range": 200,
+          "RotationsPerSecond": 10,
+          "VerticalFOVUpper": 20,
+          "VerticalFOVLower": -20
+        }
+      }
+    }
+  }
+}
