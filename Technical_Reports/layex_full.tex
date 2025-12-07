@@ -35,6 +35,14 @@ To successfully simulate the SkyVision swarm, the simulation platform needed to 
     \item \textbf{Physics Fidelity:} Accurate flight dynamics compatible with the PX4 Autopilot stack.
     \item \textbf{Customizability:} Ability to modify drone models (e.g., Holybro X500) and environments (disaster scenarios).
     \item \textbf{Visualization:} Real-time visualization of drone states, sensor data, and mapping results.
+    \item \textbf{AI and Machine Learning:} Support for advanced AI workflows, including:
+        \begin{itemize}
+            \item Computer Vision (CV) for perception and mapping
+            \item Reinforcement Learning (RL) for autonomous navigation and control
+            \item Federated Learning for distributed model training across multiple drones
+            \item Large Language Model (LLM) integration for advanced decision-making or mission planning
+        \end{itemize}
+    \item \textbf{Middleware Flexibility:} Ability to integrate with a wide range of middleware, including ROS2, PX4, MAVSDK, QGroundControl, and potentially DDS or other robotics frameworks.
 \end{itemize}
 
 \section{Simulator and Middleware Options}
@@ -57,43 +65,75 @@ For middleware and autopilot, we considered:
     \item \textbf{PX4:} Open-source autopilot stack for drones, widely supported in simulation and real hardware.
     \item \textbf{QGroundControl:} Ground station software for monitoring and controlling PX4-based drones.
     \item \textbf{ROS2:} Modern robotics middleware for distributed communication, sensor integration, and control.
+    \item \textbf{MAVSDK:} Modern SDK for MAVLink-based drone control, supporting both Python and C++ APIs. Used for programmatic mission control and telemetry.
+    \item \textbf{DDS:} Data Distribution Service, a middleware standard for scalable, real-time, and high-performance data exchange, used in some advanced robotics systems.
+    \item \textbf{Other Options:} We also explored other middleware and APIs as needed for specific AI or distributed learning tasks.
 \end{itemize}
 
 \section{Evaluation Process}
 We compared the simulators and middleware based on the following metrics:
 \begin{itemize}
-    \item \textbf{Integration Ease:} How easily does it connect with PX4 and ROS2?
+    \item \textbf{Integration Ease:} How easily does it connect with PX4, ROS2, and MAVSDK?
     \item \textbf{Swarm Scalability:} Can it run 3+ drones without crashing the host PC?
-    \item \textbf{Sensor Data:} Ease of accessing camera/LiDAR streams in Python/OpenCV.
+    \item \textbf{Sensor Data:} Ease of accessing camera/LiDAR streams in Python/OpenCV, and compatibility with AI pipelines.
+    \item \textbf{AI Capabilities:} Support for computer vision, reinforcement learning, and custom neural network integration. Ability to run perception and control algorithms efficiently.
+    \item \textbf{Computation Cost:} Resource requirements for running advanced AI tasks (e.g., RL, CV) and multi-agent scenarios.
     \item \textbf{Long-term Viability:} Is the software actively maintained?
     \item \textbf{Community Support:} Availability of documentation, forums, and troubleshooting resources.
 \end{itemize}
 
-\section{Setup and Experiments}
-\subsection{Installation and Configuration}
-\begin{itemize}
-    \item \textbf{Middleware:} Installed ROS2 Humble on Ubuntu 22.04.
-    \item \textbf{Simulator:} Set up Gazebo Harmonic using official OSRF repositories.
-    \item \textbf{Autopilot:} Cloned PX4-Autopilot repository and configured the build toolchain.
-\end{itemize}
+\section{Installation Guide}
+For detailed installation and setup instructions, please refer to the project README and the provided PDF installation guide. These documents cover all steps for setting up the simulation environment, middleware, and dependencies on Ubuntu 22.04.
 
-\subsection{Integration Steps}
+\section{Project Work Summary}
+This section summarizes the major work completed so far, organized by simulator and platform:
+\subsection{Gazebo}
 \begin{itemize}
-    \item \textbf{SITL Bridging:} Configured MicroXRCE-DDS Agent to bridge topics between PX4 (running in simulation) and ROS2 nodes.
-    \item \textbf{Model Creation:} Created a custom SDF (Simulation Description Format) file for the Holybro X500 frame, attaching virtual sensors (2D LiDAR and RGB camera).
-    \item \textbf{Swarm Launching:} Wrote a shell script to spawn multiple instances of px4\_sitl with unique namespace IDs (e.g., drone1, drone2) and distinct UDP ports for MAVLink communication.
-    \item \textbf{Visualization:} Used RViz2 and QGroundControl to monitor drone states and sensor data in real time.
+    \item Set up Gazebo Harmonic with PX4 and ROS2 integration for multi-drone simulation.
+    \item Developed and tested custom SDF models for the Holybro X500 frame, including simulated sensors (LiDAR, RGB camera).
+    \item Implemented SITL bridging and swarm launching scripts for multiple drones.
+    \item Used RViz2 and QGroundControl for real-time monitoring and control.
+    \item Conducted initial AI experiments with computer vision pipelines and basic reinforcement learning agents.
+\end{itemize}
+\subsection{Isaac Sim on Lambda Server}
+\begin{itemize}
+    \item Deployed Isaac Sim on the on-campus Lambda Labs SSH server to leverage high-end GPU resources.
+    \item Benchmarked simulator performance and tested remote visualization/streaming.
+    \item Explored advanced AI workflows, including distributed RL and federated learning experiments.
+    \item Faced challenges with hardware requirements and configuration, but gained valuable experience in cloud-based robotics simulation.
+\end{itemize}
+\subsection{AirSim (Main Platform)}
+\begin{itemize}
+    \item Adopted AirSim as the primary simulator for its superior visuals, AI/vision support, and efficient computation.
+    \item Integrated AirSim with ROS2, PX4, and MAVSDK for full-stack multi-drone control.
+    \item Developed and tested advanced AI pipelines, including deep reinforcement learning, computer vision, and (planned) LLM-based mission planning.
+    \item Leveraged the GazeboDrone plugin for enhanced physics and multi-drone support.
+    \item Documented all workflows and troubleshooting for reproducibility.
 \end{itemize}
 
 \section{Comparison and Decision}
-After extensive testing, we found:
+
+\section{Final Choice and Rationale}
+After extensive testing and evaluation, we ultimately chose \textbf{AirSim} as our main simulator for SkyVision. The key reasons for this decision are:
 \begin{itemize}
-    \item \textbf{Gazebo Harmonic} provided the best ROS2 integration and swarm scalability, with reliable sensor simulation and active community support.
-    \item \textbf{AirSim} offered superior visual fidelity but was harder to maintain and integrate with ROS2 and PX4, especially for multi-drone scenarios.
-    \item \textbf{Isaac Sim} was powerful but required hardware resources and time beyond our project scope.
+    \item \textbf{Best Visuals:} AirSim, built on Unreal Engine, provides photorealistic rendering, which is crucial for developing and testing advanced computer vision and AI perception algorithms.
+    \item \textbf{AI and RL Support:} AirSim natively supports reinforcement learning workflows and integration with popular AI frameworks, making it ideal for training and evaluating autonomous behaviors.
+    \item \textbf{Efficient Computation:} While Isaac Sim offers similar AI capabilities, it is much more resource-intensive. AirSim achieves a good balance between performance and realism, making it more accessible for our hardware.
+    \item \textbf{Better Than Gazebo for Vision:} Gazebo Harmonic is excellent for physics and ROS2 integration, but its visuals and AI support lag behind AirSim, especially for vision-based tasks.
+    \item \textbf{GazeboDrone Integration:} AirSim also supports the GazeboDrone plugin, allowing us to leverage Gazebo's physics and multi-drone features within the AirSim environment.
+    \item \textbf{Community Forks:} We COULD USE a community-maintained fork that is much newer and more compatible.
 \end{itemize}
 
-We selected \textbf{Gazebo Harmonic with PX4 and ROS2} as our primary simulation stack for SkyVision, enabling us to develop, test, and validate swarm algorithms, sensor fusion, and disaster scenario mapping before hardware deployment.
+\section{Lambda Server Experiments}
+To scale our experiments and test cloud-based simulation, we attempted to launch both Isaac Sim and AirSim on a Lambda Labs SSH server. This allowed us to:
+\begin{itemize}
+    \item Run heavy AI workloads remotely, including reinforcement learning and multi-agent training.
+    \item Benchmark simulator performance on high-end GPUs and CPUs.
+    \item Test remote visualization and control via SSH and web streaming.
+    \item Identify deployment challenges for cloud-based robotics research.
+\end{itemize}
+
+some success was made but AirSim and Isaac Sim require more specialized hardware and configuration. We are still testing the streaming capabilities to see if this is feasible or not.
 
 \section{Implementation and Results}
 \begin{itemize}
