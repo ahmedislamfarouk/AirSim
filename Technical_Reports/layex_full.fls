@@ -312,6 +312,31 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT layex_full.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./images/workflowwithrtmapslam.png
+INPUT ./images/workflowwithrtmapslam.png
+INPUT images/workflowwithrtmapslam.png
+INPUT ./images/workflowwithrtmapslam.png
+INPUT ./images/workflowwithrtmapslam.png
+INPUT ./images/vertical view.png
+INPUT ./images/vertical view.png
+INPUT images/vertical view.png
+INPUT ./images/vertical view.png
+INPUT ./images/vertical view.png
+INPUT ./images/ros2topics.png
+INPUT ./images/ros2topics.png
+INPUT images/ros2topics.png
+INPUT ./images/ros2topics.png
+INPUT ./images/ros2topics.png
+INPUT ./images/horizontal view.png
+INPUT ./images/horizontal view.png
+INPUT images/horizontal view.png
+INPUT ./images/horizontal view.png
+INPUT ./images/horizontal view.png
+INPUT ./images/drones trying to localize and map together.png
+INPUT ./images/drones trying to localize and map together.png
+INPUT images/drones trying to localize and map together.png
+INPUT ./images/drones trying to localize and map together.png
+INPUT ./images/drones trying to localize and map together.png
 INPUT layex_full.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
