@@ -158,6 +158,10 @@ This section summarizes the major work completed so far, organized by simulator 
 
 We prepared several demo scenarios to showcase the capabilities of our AirSim-based system. Below are screenshots from our experiments, each illustrating a key aspect of our multi-drone mapping and SLAM workflow:
 
+These demos highlight our progress in collaborative mapping, real-time SLAM, and AI-driven perception using AirSim, ROS2, and RTAB-Map. Each scenario demonstrates the integration of advanced sensor simulation, multi-agent control, and visualization tools essential for swarm robotics research. 
+
+Full demo videos and additional experiment results are available on our shared Google Drive for further reference and reproducibility.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{images/workflowwithrtmapslam.png}
@@ -189,9 +193,30 @@ We prepared several demo scenarios to showcase the capabilities of our AirSim-ba
 \end{figure}
 
 \section{Conclusion}
-This report summarizes our evaluation and selection of simulation tools for the SkyVision multi-drone project. By choosing Gazebo Harmonic, PX4, and ROS2, we established a robust, scalable, and well-supported simulation environment for developing autonomous drone swarms. Our experience and documentation aim to assist future teams in making informed decisions for aerial robotics research.
+In this report, we presented a comprehensive evaluation and hands-on comparison of leading open-source simulators and middleware for the SkyVision multi-drone project. Through rigorous testing of AirSim, Gazebo Harmonic, and Isaac Sim, as well as middleware like PX4 and ROS2, we identified the strengths and limitations of each platform for collaborative mapping, SLAM, and AI-driven swarm control.
 
-\section*{Acknowledgments}
-We thank Al Alamein International University and JMU for their support and collaboration, and the open-source communities behind Gazebo, PX4, ROS2, and AirSim for their invaluable resources.
+Our final solution leverages AirSim for its photorealistic visuals and advanced sensor simulation, tightly integrated with ROS2 and PX4 for scalable multi-drone operations. The documented workflows, troubleshooting steps, and demo scenarios provide a reproducible foundation for future research and development in aerial robotics.
+
+We hope this report and our shared resources will help other teams accelerate their own projects, avoid common pitfalls, and push the boundaries of autonomous drone swarms in real-world applications.
+
+
+
+
+\section{Future Work}
+
+Building on our current achievements, several avenues remain for further development and experimentation:
+
+\begin{itemize}
+    \item \textbf{Cloud-Based Simulation:} We plan to continue testing the deployment of AirSim and Isaac Sim on remote Lambda Labs SSH servers, leveraging streaming technologies for scalable, cloud-based multi-drone simulation and AI training.
+    \item \textbf{SLAM and Localization:} Ongoing work will focus on improving SLAM and localization pipelines within AirSim, aiming for robust real-time mapping and accurate multi-agent state estimation.
+    \item \textbf{AI Model Integration:} We will implement and benchmark advanced AI models, including reinforcement learning for autonomous navigation and federated learning for distributed training across drone swarms.
+    \item \textbf{Large Language Models (LLMs):} Integration of LLMs for mission planning, decision support, and natural language interaction with the drone system.
+    \item \textbf{Algorithmic Optimization:} Exploration of optimization techniques for path planning, resource allocation, and swarm coordination to enhance efficiency and scalability.
+    \item \textbf{Sensor Fusion:} Investigate multi-sensor fusion approaches to combine LiDAR, camera, and IMU data for improved perception and mapping.
+    \item \textbf{Real-World Deployment:} Transition validated simulation workflows to physical drone hardware for field testing and real-world validation.
+    \item \textbf{Open-Source Contribution:} Continue contributing improvements, documentation, and troubleshooting guides to the open-source community.
+\end{itemize}
+
+These efforts will further advance the capabilities of the SkyVision platform and support cutting edge research in autonomous aerial robotics.
 
 \end{document}
